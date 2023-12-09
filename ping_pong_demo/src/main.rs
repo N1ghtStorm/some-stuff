@@ -56,7 +56,6 @@ fn ping_mutex() {
         if !*b {
             println!("ping");
             *b = !*b;
-            CONDVAR.notify_one();
         }
     }
     #[cfg(feature = "condvar_enabled")]
@@ -78,7 +77,6 @@ fn pong_mutex() {
         if *b {
             println!("pong");
             *b = !*b;
-            CONDVAR.notify_one();
         }
     }
     #[cfg(feature = "condvar_enabled")]
